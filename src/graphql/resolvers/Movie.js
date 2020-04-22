@@ -1,42 +1,42 @@
-import Game from "../../models/Game";
+import Movie from "../../models/Movie";
 import { response } from "express";
 
 export default {
     Query: {
-        game: (root, args) => {
+        movie: (root, args) => {
             return new Promise((resolve, reject) => {
-                Game.findOne(args).exec((error, response)=> {
+                Movie.findOne(args).exec((error, response)=> {
                     error ? reject(error) : resolve(response);
                 })
             })
         },
-        games: () => {
+        movies: () => {
             return new Promise((resolve, reject) => {
-                Game.find({}).populate().exec((error, response) => {
+                Movie.find({}).populate().exec((error, response) => {
                     error ? reject(error) : resolve(response);
                 })
             })
         }
     },
     Mutation: {
-        addGame: (root, {name, description, vendor, price, imageUrl}) => {
-            const newGame = new Game({name, description, vendor, price, imageUrl});
+        addMovie: (root, {title, year, description, genre, popularity, coverUrl}) => {
+            const newMovie = new Movie({title, year, description, genre, popularity, coverUrl});
             return new Promise((resolve, reject) => {
-                newGame.save((error, response) => {
+                newMovie.save((error, response) => {
                     error ? reject(error) : resolve(response);
                 })
             })
         },
-        deleteGame: (root, {_id}) => {
+        deleteMovie: (root, {_id}) => {
             return new Promise((resolve, reject) => {
-                Game.findByIdAndRemove({_id}).exec((error, response) => {
+                Movie.findByIdAndRemove({_id}).exec((error, response) => {
                     error ? reject(error): resolve(response);
                 })
             })
         },
-        editGame: (root, {_id, name, description,vendor, price, imageUrl}) => {
+        editMovie: (root, {_id, title, year, description, genre, popularity, coverUrl}) => {
             return new Promise((resolve, reject) => {
-                Game.findByIdAndUpdate({_id}, {$set: {name, description,vendor, price, imageUrl}}, {new: true}).exec((error, response) => {
+                Movie.findByIdAndUpdate({_id}, {$set: {title, year, description, genre, popularity, coverUrl}}, {new: true}).exec((error, response) => {
                     error ? reject(error) : resolve(response);
                 })
             })

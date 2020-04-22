@@ -1,7 +1,7 @@
 export default `
 
 type User{
-    id_: String!
+    _id: String!
     username: String!
     email: String!
     password: String!
