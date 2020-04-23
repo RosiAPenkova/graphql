@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const MovieSchema = new Schema({
+const FilmSchema = new Schema({
 
     title:{
         type: String,
@@ -31,6 +31,6 @@ const MovieSchema = new Schema({
     }
 })
 
-const Movie = mongoose.model("Movie", MovieSchema);
+const Film = mongoose.model("Film", FilmSchema);
 
-export default Movie;
+export default Film;

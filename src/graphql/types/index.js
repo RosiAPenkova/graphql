@@ -1,10 +1,10 @@
 import {mergeTypes} from "merge-graphql-schemas";
 import User from "./User";
 import Game from "./Game";
-import Movie from "./Movie";
+import Film from "./Film";
 
 
-const typeDefs = [User, Game, Movie];
+const typeDefs = [User, Game, Film];
 
 
 export default mergeTypes(typeDefs, {all:true});
