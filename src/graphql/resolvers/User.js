@@ -1,5 +1,5 @@
 import User from "../../models/User";
-import { response } from "express";
+import {response} from "express";
 
 
 export default {

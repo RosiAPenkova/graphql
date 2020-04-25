@@ -6,6 +6,7 @@ type User{
     email: String!
     password: String!
     userAvatar: String
+    film: [Film]
 }
 
 type Query{
@@ -16,6 +17,6 @@ type Query{
 type Mutation{
     addUser(username: String!, email: String, password: String!, userAvatar: String): User
     deleteUser(_id: String!): User
-    editUser(_id: String, username: String!, email: String!, password: String!, userAvatar: String): User
+    editUser(_id: String, username: String!, email: String!, password: String!, userAvatar: String, films: [FilmInput]): User
 }
 `
