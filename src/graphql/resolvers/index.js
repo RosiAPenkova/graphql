@@ -1,10 +1,10 @@
 import {mergeResolvers} from "merge-graphql-schemas";
 import User from "./User";
 import Game from "./Game";
-import Movie from "./Film";
+import Film from "./Film";
 
 
-const resolvers = [User, Game, Movie];
+const resolvers = [User, Game, Film];
 
 
 export default mergeResolvers(resolvers);
